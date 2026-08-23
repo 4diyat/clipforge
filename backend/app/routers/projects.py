@@ -9,7 +9,8 @@ from app.schemas import ClipUpdate
 
 router = APIRouter()
 
-STORAGE_DIR = os.getenv("STORAGE_PATH", os.path.expanduser("~/ai-video-clipper/storage"))
+DEFAULT_STORAGE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "storage"))
+STORAGE_DIR = os.getenv("STORAGE_PATH", DEFAULT_STORAGE)
 
 def get_video_duration(file_path: str) -> float:
     try:

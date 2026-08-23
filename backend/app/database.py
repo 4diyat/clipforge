@@ -2,7 +2,8 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-STORAGE_DIR = os.getenv("STORAGE_PATH", os.path.expanduser("~/ai-video-clipper/storage"))
+DEFAULT_STORAGE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "storage"))
+STORAGE_DIR = os.getenv("STORAGE_PATH", DEFAULT_STORAGE)
 os.makedirs(STORAGE_DIR, exist_ok=True)
 
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{os.path.join(STORAGE_DIR, 'app.db')}")

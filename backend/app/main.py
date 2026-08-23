@@ -25,7 +25,8 @@ app.add_middleware(
 init_db()
 
 # Mount Static File Server for uploaded video files and exported clips
-STORAGE_DIR = os.getenv("STORAGE_PATH", os.path.expanduser("~/ai-video-clipper/storage"))
+DEFAULT_STORAGE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "storage"))
+STORAGE_DIR = os.getenv("STORAGE_PATH", DEFAULT_STORAGE)
 os.makedirs(STORAGE_DIR, exist_ok=True)
 app.mount("/storage", StaticFiles(directory=STORAGE_DIR), name="storage")
 
