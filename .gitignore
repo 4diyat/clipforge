@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.next/
+out/
+build/
+dist/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local Storage & Database
+backend/storage/
+storage/
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment
+.env
+.env.local
+.env.production
+.env.development
+
+# Logs & OS
+*.log
+.DS_Store
+.vscode/
+.idea/
